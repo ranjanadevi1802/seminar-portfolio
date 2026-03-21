@@ -1,0 +1,1059 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Team Showcase — ISE Batch 2026</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet">
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg: #0a0a0f;
+      --surface: #111118;
+      --surface2: #1a1a25;
+      --border: rgba(255,255,255,0.07);
+      --accent-a: #7c6aff;
+      --accent-b: #ff6a9b;
+      --accent-c: #6affda;
+      --text: #f0eff8;
+      --muted: #8885a0;
+      --font-display: 'Syne', sans-serif;
+      --font-body: 'DM Sans', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: var(--font-body);
+      font-size: 16px;
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    /* ── NOISE OVERLAY ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.04'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+      opacity: 0.4;
+    }
+
+    /* ── NAV ── */
+    nav {
+      position: fixed;
+      top: 0; left: 0; right: 0;
+      z-index: 100;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1.2rem 4rem;
+      backdrop-filter: blur(12px);
+      background: rgba(10,10,15,0.7);
+      border-bottom: 1px solid var(--border);
+      transition: background 0.3s;
+    }
+    nav .logo {
+      font-family: var(--font-display);
+      font-weight: 800;
+      font-size: 1.1rem;
+      letter-spacing: -0.02em;
+      background: linear-gradient(90deg, var(--accent-a), var(--accent-b));
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    nav ul {
+      list-style: none;
+      display: flex;
+      gap: 2.5rem;
+    }
+    nav ul a {
+      color: var(--muted);
+      text-decoration: none;
+      font-size: 0.875rem;
+      font-weight: 500;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+      transition: color 0.2s;
+    }
+    nav ul a:hover { color: var(--text); }
+
+    /* ── HERO ── */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      padding: 8rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-bg {
+      position: absolute;
+      inset: 0;
+      z-index: 0;
+    }
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.25;
+    }
+    .orb-1 { width: 500px; height: 500px; background: var(--accent-a); top: -100px; left: -100px; }
+    .orb-2 { width: 400px; height: 400px; background: var(--accent-b); bottom: -80px; right: -80px; }
+    .orb-3 { width: 300px; height: 300px; background: var(--accent-c); top: 40%; left: 50%; transform: translate(-50%,-50%); }
+
+    .hero-content { position: relative; z-index: 1; max-width: 780px; }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.4rem 1rem;
+      border: 1px solid var(--border);
+      border-radius: 100px;
+      font-size: 0.78rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 2rem;
+      background: var(--surface);
+      animation: fadeUp 0.8s ease both;
+    }
+    .badge span { width: 6px; height: 6px; border-radius: 50%; background: var(--accent-c); display: block; }
+
+    .hero h1 {
+      font-family: var(--font-display);
+      font-size: clamp(3rem, 8vw, 6rem);
+      font-weight: 800;
+      line-height: 1.0;
+      letter-spacing: -0.04em;
+      margin-bottom: 1.5rem;
+      animation: fadeUp 0.8s 0.1s ease both;
+    }
+    .hero h1 em {
+      font-style: normal;
+      background: linear-gradient(135deg, var(--accent-a) 0%, var(--accent-b) 50%, var(--accent-c) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero p {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 520px;
+      margin: 0 auto 2.5rem;
+      animation: fadeUp 0.8s 0.2s ease both;
+      font-weight: 300;
+    }
+
+    .hero-cta {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+      animation: fadeUp 0.8s 0.3s ease both;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 1.8rem;
+      border-radius: 8px;
+      font-family: var(--font-body);
+      font-size: 0.9rem;
+      font-weight: 500;
+      text-decoration: none;
+      transition: all 0.2s;
+      cursor: pointer;
+      border: none;
+    }
+    .btn-primary {
+      background: linear-gradient(135deg, var(--accent-a), var(--accent-b));
+      color: #fff;
+    }
+    .btn-primary:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(124,106,255,0.35); }
+    .btn-ghost {
+      background: var(--surface2);
+      color: var(--text);
+      border: 1px solid var(--border);
+    }
+    .btn-ghost:hover { background: var(--surface); border-color: rgba(255,255,255,0.15); transform: translateY(-2px); }
+
+    /* ── SECTION BASE ── */
+    section { padding: 6rem 4rem; }
+    .section-label {
+      font-size: 0.75rem;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--accent-a);
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+    }
+    .section-title {
+      font-family: var(--font-display);
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      line-height: 1.1;
+      margin-bottom: 1rem;
+    }
+    .section-sub {
+      color: var(--muted);
+      font-size: 1rem;
+      max-width: 500px;
+      font-weight: 300;
+    }
+
+    /* ── TEAM SECTION ── */
+    #team { background: var(--bg); }
+    .team-header { margin-bottom: 4rem; }
+
+    .team-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+      gap: 2rem;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .member-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 2.5rem;
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s, border-color 0.3s;
+      opacity: 0;
+      transform: translateY(30px);
+    }
+    .member-card.visible {
+      animation: fadeUp 0.6s ease forwards;
+    }
+    .member-card:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 20px 60px rgba(0,0,0,0.4);
+      border-color: rgba(255,255,255,0.15);
+    }
+    .member-card::before {
+      content: '';
+      position: absolute;
+      top: 0; left: 0; right: 0;
+      height: 3px;
+    }
+    .card-a::before { background: linear-gradient(90deg, var(--accent-a), var(--accent-b)); }
+    .card-b::before { background: linear-gradient(90deg, var(--accent-c), var(--accent-a)); }
+
+    .member-avatar {
+      width: 72px;
+      height: 72px;
+      border-radius: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: var(--font-display);
+      font-size: 1.5rem;
+      font-weight: 800;
+      margin-bottom: 1.5rem;
+      position: relative;
+    }
+    .avatar-a { background: linear-gradient(135deg, var(--accent-a), var(--accent-b)); }
+    .avatar-b { background: linear-gradient(135deg, var(--accent-c), var(--accent-a)); }
+
+    .member-role {
+      font-size: 0.75rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--muted);
+      margin-bottom: 0.3rem;
+    }
+    .member-name {
+      font-family: var(--font-display);
+      font-size: 1.6rem;
+      font-weight: 800;
+      letter-spacing: -0.02em;
+      margin-bottom: 0.3rem;
+    }
+    .member-dept {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 1.5rem;
+    }
+    .member-bio {
+      font-size: 0.9rem;
+      color: var(--muted);
+      line-height: 1.7;
+      margin-bottom: 1.8rem;
+      font-weight: 300;
+    }
+
+    .skills-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 1.8rem;
+    }
+    .skill-tag {
+      padding: 0.3rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      font-weight: 500;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .skill-tag.highlight {
+      background: rgba(124,106,255,0.12);
+      border-color: rgba(124,106,255,0.3);
+      color: var(--accent-a);
+    }
+
+    .member-links {
+      display: flex;
+      gap: 0.75rem;
+    }
+    .link-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      text-decoration: none;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--muted);
+      transition: all 0.2s;
+    }
+    .link-btn:hover {
+      color: var(--text);
+      border-color: rgba(255,255,255,0.2);
+      background: var(--surface);
+    }
+
+    /* ── PROJECT SECTION ── */
+    #project {
+      background: var(--surface);
+      border-top: 1px solid var(--border);
+      border-bottom: 1px solid var(--border);
+    }
+    .project-inner {
+      max-width: 900px;
+      margin: 0 auto;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 4rem;
+      align-items: center;
+    }
+    .project-meta { }
+    .project-meta .section-label { margin-bottom: 0.5rem; }
+    .project-title {
+      font-family: var(--font-display);
+      font-size: 2rem;
+      font-weight: 800;
+      letter-spacing: -0.03em;
+      margin-bottom: 1rem;
+    }
+    .project-desc {
+      color: var(--muted);
+      font-size: 0.95rem;
+      line-height: 1.75;
+      margin-bottom: 1.5rem;
+      font-weight: 300;
+    }
+    .project-stack {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.5rem;
+      margin-bottom: 2rem;
+    }
+    .stack-tag {
+      padding: 0.3rem 0.75rem;
+      border-radius: 6px;
+      font-size: 0.75rem;
+      background: rgba(106,255,218,0.08);
+      border: 1px solid rgba(106,255,218,0.2);
+      color: var(--accent-c);
+      font-weight: 500;
+    }
+    .project-visual {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 2rem;
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+    .pv-bar {
+      height: 8px;
+      border-radius: 100px;
+      background: var(--surface);
+    }
+    .pv-bar-fill {
+      height: 100%;
+      border-radius: 100px;
+      animation: barGrow 1.2s ease both;
+    }
+    @keyframes barGrow {
+      from { width: 0%; }
+    }
+    .pv-row { display: flex; align-items: center; justify-content: space-between; }
+    .pv-label { font-size: 0.78rem; color: var(--muted); }
+
+    /* ── WORKFLOW SECTION ── */
+    #workflow { background: var(--bg); }
+    .workflow-inner { max-width: 900px; margin: 0 auto; }
+    .workflow-header { margin-bottom: 3rem; }
+    .steps-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1.5rem;
+    }
+    .step-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.8rem;
+      position: relative;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .step-card.visible { animation: fadeUp 0.5s ease forwards; }
+    .step-num {
+      font-family: var(--font-display);
+      font-size: 0.7rem;
+      letter-spacing: 0.15em;
+      color: var(--accent-a);
+      font-weight: 700;
+      margin-bottom: 0.75rem;
+      text-transform: uppercase;
+    }
+    .step-title {
+      font-family: var(--font-display);
+      font-size: 1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .step-desc {
+      font-size: 0.85rem;
+      color: var(--muted);
+      line-height: 1.6;
+      font-weight: 300;
+    }
+    .step-code {
+      margin-top: 0.75rem;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.6rem 0.8rem;
+      font-family: 'Courier New', monospace;
+      font-size: 0.75rem;
+      color: var(--accent-c);
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      padding: 3rem 4rem;
+      border-top: 1px solid var(--border);
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+    footer p {
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+    footer .foot-right {
+      display: flex;
+      gap: 1.5rem;
+      font-size: 0.85rem;
+    }
+    footer a {
+      color: var(--muted);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+    footer a:hover { color: var(--text); }
+
+    /* ── ANIMATIONS ── */
+    @keyframes fadeUp {
+      from { opacity: 0; transform: translateY(30px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      nav { padding: 1rem 1.5rem; }
+      nav ul { display: none; }
+      section { padding: 4rem 1.5rem; }
+      .project-inner { grid-template-columns: 1fr; gap: 2rem; }
+      footer { padding: 2rem 1.5rem; flex-direction: column; align-items: flex-start; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- NAV -->
+  <nav id="navbar">
+    <div class="logo">team.showcase</div>
+    <ul>
+      <li><a href="#team">Team</a></li>
+      <li><a href="#git-basics">Git Basics</a></li>
+      <li><a href="#commands">Commands</a></li>
+      <li><a href="#deploy">Deploy</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-bg">
+      <div class="orb orb-1"></div>
+      <div class="orb orb-2"></div>
+      <div class="orb orb-3"></div>
+    </div>
+    <div class="hero-content">
+      <div class="badge"><span></span> ISE · Women's Engineering College, Puducherry</div>
+      <h1>Learn Git.<br><em>Ship Together.</em></h1>
+      <p>A hands-on guide to GitHub collaboration, commit commands, and deployment — built and demonstrated by two B.Tech ISE students.</p>
+      <div class="hero-cta">
+        <a href="#git-basics" class="btn btn-primary">Start Learning →</a>
+        <a href="#team" class="btn btn-ghost">Meet the Team</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- TEAM -->
+  <section id="team">
+    <div style="max-width:900px; margin:0 auto;">
+      <div class="team-header">
+        <div class="section-label">The People</div>
+        <h2 class="section-title">Meet the Team</h2>
+        <p class="section-sub">Two students. One codebase. Built together using Git branches and pull requests.</p>
+      </div>
+      <div class="team-grid">
+
+        <!-- MEMBER A — Ranjana -->
+        <div class="member-card card-a observe">
+          <div class="member-avatar avatar-a">R</div>
+          <div class="member-role">Branch: feature/ranjana</div>
+          <div class="member-name">Ranjana Devi K</div>
+          <div class="skills-row">
+            <span class="skill-tag highlight">Python</span>
+            <span class="skill-tag highlight">Flask</span>
+            <span class="skill-tag">TF-IDF</span>
+            <span class="skill-tag">NLP</span>
+            <span class="skill-tag">DSA</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">Render</span>
+          </div>
+          <div class="member-links">
+            <a href="https://github.com/ranjanadevi1802" target="_blank" class="link-btn">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+              GitHub
+            </a>
+            <a href="https://ranjanadevi1802.github.io/" target="_blank" class="link-btn">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm2.725 6.454a.5.5 0 0 0-.354.146L.854 9.172a.5.5 0 0 0 0 .707l1.517 1.572a.5.5 0 0 0 .72-.694L1.854 9.525l1.237-1.232a.5.5 0 0 0-.366-.853zm4.396 5.223a.5.5 0 0 0 .634-.772l-4-3.5a.5.5 0 0 0-.634 0l-4 3.5a.5.5 0 1 0 .634.772L4 9.204l3.121 2.619zM8.5 6a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 1 0v-4a.5.5 0 0 0-.5-.5zm3.354-.146a.5.5 0 0 0-.708 0L9.793 7.207a.5.5 0 1 0 .707.707L11.5 6.914l1 1a.5.5 0 0 0 .707-.707l-1.353-1.353z"/></svg>
+              Portfolio
+            </a>
+          </div>
+        </div>
+
+        <!-- MEMBER B — Pavithra -->
+        <div class="member-card card-b observe">
+          <div class="member-avatar avatar-b">P</div>
+          <div class="member-role">Branch: feature/pavithra</div>
+          <div class="member-name">Pavithra B</div>
+          <div class="skills-row">
+            <span class="skill-tag highlight">Web Dev</span>
+            <span class="skill-tag highlight">Python</span>
+            <span class="skill-tag">HTML/CSS</span>
+            <span class="skill-tag">JavaScript</span>
+            <span class="skill-tag">Git</span>
+            <span class="skill-tag">GitHub Pages</span>
+          </div>
+          <div class="member-links">
+            <a href="https://github.com/pavithrab-wec" target="_blank" class="link-btn">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.012 8.012 0 0 0 16 8c0-4.42-3.58-8-8-8z"/></svg>
+              GitHub
+            </a>
+            <a href="https://pavithrab-wec.github.io/" target="_blank" class="link-btn">
+              <svg width="14" height="14" fill="currentColor" viewBox="0 0 16 16"><path d="M0 1.146C0 .513.526 0 1.175 0h13.65C15.474 0 16 .513 16 1.146v13.708c0 .633-.526 1.146-1.175 1.146H1.175C.526 16 0 15.487 0 14.854V1.146zm2.725 6.454a.5.5 0 0 0-.354.146L.854 9.172a.5.5 0 0 0 0 .707l1.517 1.572a.5.5 0 0 0 .72-.694L1.854 9.525l1.237-1.232a.5.5 0 0 0-.366-.853zm4.396 5.223a.5.5 0 0 0 .634-.772l-4-3.5a.5.5 0 0 0-.634 0l-4 3.5a.5.5 0 1 0 .634.772L4 9.204l3.121 2.619zM8.5 6a.5.5 0 0 0-.5.5v4a.5.5 0 0 0 1 0v-4a.5.5 0 0 0-.5-.5zm3.354-.146a.5.5 0 0 0-.708 0L9.793 7.207a.5.5 0 1 0 .707.707L11.5 6.914l1 1a.5.5 0 0 0 .707-.707l-1.353-1.353z"/></svg>
+              Portfolio
+            </a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+
+  <!-- GIT BASICS -->
+  <section id="git-basics" style="background:var(--surface);border-top:1px solid var(--border);border-bottom:1px solid var(--border);">
+    <div style="max-width:900px;margin:0 auto;">
+      <div class="section-label">Chapter 01</div>
+      <h2 class="section-title">What is Git &amp; GitHub?</h2>
+      <p class="section-sub" style="margin-bottom:3rem;">Understanding the difference — and why both matter.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-bottom:3rem;">
+        <div class="edu-card observe" style="border-color:rgba(124,106,255,0.3);">
+          <div style="font-size:2rem;margin-bottom:1rem;">🗂️</div>
+          <div class="edu-card-title">Git</div>
+          <p class="edu-card-desc">A version control system that runs locally on your computer. It tracks every change you make to your files — like a detailed history you can always go back to.</p>
+          <div class="edu-fact">Runs on your machine · No internet needed</div>
+        </div>
+        <div class="edu-card observe" style="border-color:rgba(255,106,155,0.3);">
+          <div style="font-size:2rem;margin-bottom:1rem;">☁️</div>
+          <div class="edu-card-title">GitHub</div>
+          <p class="edu-card-desc">A cloud platform where you store your Git repositories online. It lets you collaborate with others, review code, and host your projects publicly or privately.</p>
+          <div class="edu-fact">Lives in the cloud · Built for collaboration</div>
+        </div>
+      </div>
+
+      <div class="section-label">How They Work Together</div>
+      <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:1rem;">
+        <div class="flow-step observe">
+          <div class="flow-num">1</div>
+          <div class="flow-title">Write Code</div>
+          <div class="flow-desc">You edit files locally on your computer using any editor</div>
+        </div>
+        <div class="flow-step observe">
+          <div class="flow-num">2</div>
+          <div class="flow-title">Commit</div>
+          <div class="flow-desc">Git saves a snapshot of your changes with a message</div>
+        </div>
+        <div class="flow-step observe">
+          <div class="flow-num">3</div>
+          <div class="flow-title">Push</div>
+          <div class="flow-desc">Your commits are uploaded to GitHub for the team to see</div>
+        </div>
+        <div class="flow-step observe">
+          <div class="flow-num">4</div>
+          <div class="flow-title">Collaborate</div>
+          <div class="flow-desc">Others pull your changes, review them, and merge via PRs</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- COMMANDS -->
+  <section id="commands" style="background:var(--bg);">
+    <div style="max-width:900px;margin:0 auto;">
+      <div class="section-label">Chapter 02</div>
+      <h2 class="section-title">Essential Git Commands</h2>
+      <p class="section-sub" style="margin-bottom:3rem;">Every command you need — from setup to collaboration.</p>
+
+      <div style="display:grid;gap:1.5rem;">
+
+        <!-- Setup -->
+        <div class="cmd-group observe">
+          <div class="cmd-group-label">🔧 Setup — Run once on your machine</div>
+          <div class="cmd-list">
+            <div class="cmd-row">
+              <div class="cmd-box"><span class="cmd-dollar">$</span> git config --global user.name "Your Name"</div>
+              <div class="cmd-explain">Sets your identity for all commits</div>
+            </div>
+            <div class="cmd-row">
+              <div class="cmd-box"><span class="cmd-dollar">$</span> git config --global user.email "you@email.com"</div>
+              <div class="cmd-explain">Links commits to your GitHub account</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Start a repo -->
+        <div class="cmd-group observe">
+          <div class="cmd-group-label">📁 Start a Repository</div>
+          <div class="cmd-list">
+            <div class="cmd-row">
+              <div class="cmd-box"><span class="cmd-dollar">$</span> git init</div>
+              <div class="cmd-explain">Initialise a new Git repo in the current folder</div>
+            </div>
+            <div class="cmd-row">
+              <div class="cmd-box"><span class="cmd-dollar">$</span> git clone &lt;url&gt;</div>
+              <div class="cmd-explain">Download an existing GitHub repo to your machine</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stage & Commit -->
+        <div class="cmd-group observe">
+          <div class="cmd-group-label">💾 Stage &amp; Commit Changes</div>
+          <div class="cmd-list">
+            <div class="cmd-row">
+              <div class="cmd-box"><span class="cmd-dollar">$</span> git status</div>
+              <div class="cmd-explain">See which files have changed or are untracked</div>
+            </div>
+            <div class="cmd-row">
+              <div class="cmd-box"><span class="cmd-dollar">$</span> git add .</div>
+              <div class="cmd-explain">Stage all changed files ready for commit</div>
+            </div>
+            <div class="cmd-row">
+              <div class="cmd-box"><span class="cmd-dollar">$</span> git add index.html</div>
+              <div class="cmd-explain">Stage a specific file only</div>
+            </div>
+            <div class="cmd-row">
+              <div class="cmd-box"><span class="cmd-dollar">$</span> git commit -m "your message here"</div>
+              <div class="cmd-explain">Save a snapshot with a descriptive message</div>
+            </div>
+            <div class="cmd-row">
+              <div class="cmd-box"><span class="cmd-dollar">$</span> git log --oneline</div>
+              <div class="cmd-explain">View a compact history of all commits</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Branching -->
+        <div class="cmd-group observe">
+          <div class="cmd-group-label">🌿 Branching &amp; Merging</div>
+          <div class="cmd-list">
+            <div class="cmd-row">
+              <div class="cmd-box"><span class="cmd-dollar">$</span> git branch</div>
+              <div class="cmd-explain">List all local branches</div>
+            </div>
+            <div class="cmd-row">
+              <div class="cmd-box"><span class="cmd-dollar">$</span> git checkout -b feature/ranjana</div>
+              <div class="cmd-explain">Create and switch to a new branch</div>
+            </div>
+            <div class="cmd-row">
+              <div class="cmd-box"><span class="cmd-dollar">$</span> git checkout main</div>
+              <div class="cmd-explain">Switch back to the main branch</div>
+            </div>
+            <div class="cmd-row">
+              <div class="cmd-box"><span class="cmd-dollar">$</span> git merge feature/ranjana</div>
+              <div class="cmd-explain">Merge a branch into the current branch</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Remote -->
+        <div class="cmd-group observe">
+          <div class="cmd-group-label">🔗 Push, Pull &amp; Sync with GitHub</div>
+          <div class="cmd-list">
+            <div class="cmd-row">
+              <div class="cmd-box"><span class="cmd-dollar">$</span> git remote add origin &lt;url&gt;</div>
+              <div class="cmd-explain">Connect your local repo to a GitHub repo</div>
+            </div>
+            <div class="cmd-row">
+              <div class="cmd-box"><span class="cmd-dollar">$</span> git push origin main</div>
+              <div class="cmd-explain">Upload your commits to GitHub</div>
+            </div>
+            <div class="cmd-row">
+              <div class="cmd-box"><span class="cmd-dollar">$</span> git push origin feature/ranjana</div>
+              <div class="cmd-explain">Push a specific branch to GitHub</div>
+            </div>
+            <div class="cmd-row">
+              <div class="cmd-box"><span class="cmd-dollar">$</span> git pull origin main</div>
+              <div class="cmd-explain">Download and merge the latest changes from GitHub</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Pull Request explainer -->
+      <div style="margin-top:2.5rem;background:var(--surface);border:1px solid var(--border);border-radius:16px;padding:2rem;" class="observe">
+        <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1rem;">
+          <span style="font-size:1.4rem;">🔀</span>
+          <span style="font-family:var(--font-display);font-size:1.1rem;font-weight:700;">What is a Pull Request (PR)?</span>
+        </div>
+        <p style="color:var(--muted);font-size:0.9rem;line-height:1.75;font-weight:300;max-width:680px;">
+          A Pull Request is a request to merge your branch into <code style="background:var(--surface2);padding:0.1em 0.4em;border-radius:4px;font-size:0.85em;color:var(--accent-c);">main</code>. It lets your teammate review your code, leave comments, and approve before anything is merged. This is how professional teams ship code safely — no one pushes directly to main.
+        </p>
+        <div style="display:flex;gap:0.75rem;margin-top:1.5rem;flex-wrap:wrap;">
+          <div class="pr-step">Push your branch</div>
+          <div class="pr-arrow">→</div>
+          <div class="pr-step">Open PR on GitHub</div>
+          <div class="pr-arrow">→</div>
+          <div class="pr-step">Teammate reviews</div>
+          <div class="pr-arrow">→</div>
+          <div class="pr-step">Approve &amp; Merge</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- DEPLOY -->
+  <section id="deploy" style="background:var(--surface);border-top:1px solid var(--border);">
+    <div style="max-width:900px;margin:0 auto;">
+      <div class="section-label">Chapter 03</div>
+      <h2 class="section-title">Deploying Your Site</h2>
+      <p class="section-sub" style="margin-bottom:3rem;">Two free platforms — same repo, two live URLs.</p>
+
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-bottom:2.5rem;">
+
+        <!-- GitHub Pages -->
+        <div class="deploy-card observe">
+          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;">
+            <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--accent-a),var(--accent-b));display:flex;align-items:center;justify-content:center;font-size:1.1rem;">🐙</div>
+            <div>
+              <div style="font-family:var(--font-display);font-weight:700;font-size:1rem;">GitHub Pages</div>
+              <div style="font-size:0.75rem;color:var(--muted);">Free · Static sites · yourusername.github.io</div>
+            </div>
+          </div>
+          <div class="deploy-steps">
+            <div class="deploy-step"><span class="ds-num">1</span><span>Push <code>index.html</code> to the <code>main</code> branch</span></div>
+            <div class="deploy-step"><span class="ds-num">2</span><span>Go to repo → <strong>Settings → Pages</strong></span></div>
+            <div class="deploy-step"><span class="ds-num">3</span><span>Source: <strong>Deploy from a branch</strong> → select <code>main</code></span></div>
+            <div class="deploy-step"><span class="ds-num">4</span><span>Click Save — live in ~2 minutes</span></div>
+            <div class="deploy-step"><span class="ds-num">5</span><span>Visit: <code>yourusername.github.io/repo-name</code></span></div>
+          </div>
+          <div style="margin-top:1.25rem;padding:0.75rem 1rem;background:rgba(124,106,255,0.08);border:1px solid rgba(124,106,255,0.2);border-radius:8px;font-size:0.78rem;color:var(--accent-a);">
+            ✓ Auto-redeploys every time you push to main
+          </div>
+        </div>
+
+        <!-- Render -->
+        <div class="deploy-card observe">
+          <div style="display:flex;align-items:center;gap:0.75rem;margin-bottom:1.25rem;">
+            <div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,var(--accent-c),var(--accent-a));display:flex;align-items:center;justify-content:center;font-size:1.1rem;">🚀</div>
+            <div>
+              <div style="font-family:var(--font-display);font-weight:700;font-size:1rem;">Render</div>
+              <div style="font-size:0.75rem;color:var(--muted);">Free · Static sites · yoursite.onrender.com</div>
+            </div>
+          </div>
+          <div class="deploy-steps">
+            <div class="deploy-step"><span class="ds-num">1</span><span>Go to <strong>render.com</strong> → Sign up with GitHub</span></div>
+            <div class="deploy-step"><span class="ds-num">2</span><span>Click <strong>New → Static Site</strong></span></div>
+            <div class="deploy-step"><span class="ds-num">3</span><span>Connect your GitHub repo</span></div>
+            <div class="deploy-step"><span class="ds-num">4</span><span>Branch: <code>main</code> · Publish dir: <code>.</code> (root)</span></div>
+            <div class="deploy-step"><span class="ds-num">5</span><span>Click <strong>Create Static Site</strong> — deploys automatically</span></div>
+          </div>
+          <div style="margin-top:1.25rem;padding:0.75rem 1rem;background:rgba(106,255,218,0.08);border:1px solid rgba(106,255,218,0.2);border-radius:8px;font-size:0.78rem;color:var(--accent-c);">
+            ✓ Supports custom domains &amp; environment variables
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Comparison table -->
+      <div class="observe" style="background:var(--surface2);border:1px solid var(--border);border-radius:16px;overflow:hidden;">
+        <div style="padding:1.25rem 1.5rem;border-bottom:1px solid var(--border);font-family:var(--font-display);font-weight:700;font-size:0.9rem;">GitHub Pages vs Render — Quick Comparison</div>
+        <div style="overflow-x:auto;">
+          <table style="width:100%;border-collapse:collapse;font-size:0.85rem;">
+            <thead>
+              <tr style="border-bottom:1px solid var(--border);">
+                <th style="padding:0.85rem 1.5rem;text-align:left;color:var(--muted);font-weight:500;">Feature</th>
+                <th style="padding:0.85rem 1.5rem;text-align:left;color:var(--accent-a);font-weight:600;">GitHub Pages</th>
+                <th style="padding:0.85rem 1.5rem;text-align:left;color:var(--accent-c);font-weight:600;">Render</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:0.8rem 1.5rem;color:var(--muted);">Cost</td>
+                <td style="padding:0.8rem 1.5rem;">Free forever</td>
+                <td style="padding:0.8rem 1.5rem;">Free tier available</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:0.8rem 1.5rem;color:var(--muted);">Auto-deploy on push</td>
+                <td style="padding:0.8rem 1.5rem;">✅ Yes</td>
+                <td style="padding:0.8rem 1.5rem;">✅ Yes</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:0.8rem 1.5rem;color:var(--muted);">Custom domain</td>
+                <td style="padding:0.8rem 1.5rem;">✅ Yes</td>
+                <td style="padding:0.8rem 1.5rem;">✅ Yes</td>
+              </tr>
+              <tr style="border-bottom:1px solid var(--border);">
+                <td style="padding:0.8rem 1.5rem;color:var(--muted);">Backend / server support</td>
+                <td style="padding:0.8rem 1.5rem;">❌ Static only</td>
+                <td style="padding:0.8rem 1.5rem;">✅ Yes (Flask, Node…)</td>
+              </tr>
+              <tr>
+                <td style="padding:0.8rem 1.5rem;color:var(--muted);">Best for</td>
+                <td style="padding:0.8rem 1.5rem;">Portfolios, docs, HTML sites</td>
+                <td style="padding:0.8rem 1.5rem;">Full-stack apps too</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <style>
+    /* Educational cards */
+    .edu-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.8rem;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .edu-card.visible { animation: fadeUp 0.5s ease forwards; }
+    .edu-card-title {
+      font-family: var(--font-display);
+      font-size: 1.2rem;
+      font-weight: 700;
+      margin-bottom: 0.6rem;
+    }
+    .edu-card-desc { font-size: 0.88rem; color: var(--muted); line-height: 1.7; font-weight: 300; margin-bottom: 1rem; }
+    .edu-fact { font-size: 0.75rem; color: var(--accent-a); background: rgba(124,106,255,0.08); border: 1px solid rgba(124,106,255,0.15); border-radius: 6px; padding: 0.4rem 0.75rem; display: inline-block; }
+
+    /* Flow steps */
+    .flow-step {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 1.2rem;
+      text-align: center;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .flow-step.visible { animation: fadeUp 0.5s ease forwards; }
+    .flow-num { font-family: var(--font-display); font-size: 1.5rem; font-weight: 800; color: var(--accent-a); margin-bottom: 0.4rem; }
+    .flow-title { font-family: var(--font-display); font-size: 0.9rem; font-weight: 700; margin-bottom: 0.3rem; }
+    .flow-desc { font-size: 0.78rem; color: var(--muted); font-weight: 300; line-height: 1.5; }
+
+    /* Command groups */
+    .cmd-group {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      overflow: hidden;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .cmd-group.visible { animation: fadeUp 0.5s ease forwards; }
+    .cmd-group-label {
+      padding: 0.9rem 1.5rem;
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      background: var(--surface2);
+      border-bottom: 1px solid var(--border);
+      color: var(--text);
+    }
+    .cmd-list { padding: 0.5rem 0; }
+    .cmd-row {
+      display: flex;
+      align-items: center;
+      gap: 1.5rem;
+      padding: 0.65rem 1.5rem;
+      border-bottom: 1px solid var(--border);
+      transition: background 0.15s;
+    }
+    .cmd-row:last-child { border-bottom: none; }
+    .cmd-row:hover { background: var(--surface2); }
+    .cmd-box {
+      font-family: 'Courier New', monospace;
+      font-size: 0.82rem;
+      color: var(--accent-c);
+      background: var(--bg);
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      padding: 0.4rem 0.85rem;
+      white-space: nowrap;
+      flex-shrink: 0;
+    }
+    .cmd-dollar { color: var(--accent-b); margin-right: 0.4rem; }
+    .cmd-explain { font-size: 0.83rem; color: var(--muted); font-weight: 300; }
+
+    /* PR flow */
+    .pr-step {
+      padding: 0.5rem 1rem;
+      border-radius: 8px;
+      font-size: 0.8rem;
+      font-weight: 500;
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      color: var(--text);
+    }
+    .pr-arrow { display: flex; align-items: center; color: var(--muted); font-size: 1rem; }
+
+    /* Deploy cards */
+    .deploy-card {
+      background: var(--surface2);
+      border: 1px solid var(--border);
+      border-radius: 16px;
+      padding: 1.8rem;
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    .deploy-card.visible { animation: fadeUp 0.5s ease forwards; }
+    .deploy-steps { display: flex; flex-direction: column; gap: 0.6rem; }
+    .deploy-step {
+      display: flex;
+      align-items: flex-start;
+      gap: 0.75rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+      font-weight: 300;
+      line-height: 1.5;
+    }
+    .deploy-step code { background: var(--surface); padding: 0.1em 0.4em; border-radius: 4px; font-size: 0.82em; color: var(--accent-c); }
+    .deploy-step strong { color: var(--text); font-weight: 500; }
+    .ds-num {
+      width: 20px;
+      height: 20px;
+      border-radius: 50%;
+      background: var(--surface);
+      border: 1px solid var(--border);
+      font-size: 0.7rem;
+      font-weight: 700;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      color: var(--accent-a);
+      margin-top: 0.1rem;
+    }
+
+    @media (max-width: 768px) {
+      .flow-step { min-width: 140px; }
+      [style*="grid-template-columns:repeat(4"] { grid-template-columns: repeat(2,1fr) !important; }
+      [style*="grid-template-columns:1fr 1fr"] { grid-template-columns: 1fr !important; }
+    }
+  </style>
+
+  <!-- FOOTER -->
+
+  <footer>
+    <p>© 2026 Ranjana Devi K &amp; Pavithra B · B.Tech ISE · WEC Puducherry</p>
+    <div class="foot-right">
+      <a href="#team">Back to top ↑</a>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll-triggered animations
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          e.target.classList.add('visible');
+          observer.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.15 });
+
+    document.querySelectorAll('.observe').forEach(el => observer.observe(el));
+
+    // Sticky nav opacity
+    const nav = document.getElementById('navbar');
+    window.addEventListener('scroll', () => {
+      nav.style.background = window.scrollY > 60
+        ? 'rgba(10,10,15,0.95)'
+        : 'rgba(10,10,15,0.7)';
+    });
+  </script>
+</body>
+</html>
