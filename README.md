@@ -1,22 +1,18 @@
-\# 🎓 Seminar Portfolio — ISE Batch 2026
+Seminar Portfolio — ISE Batch 2026
 
 
 
-A collaborative team showcase portfolio website built for seminar presentation by \*\*Ranjana Devi K\*\* and \*\*Pavithra B\*\*, B.Tech Information Science Engineering students at Women's Engineering College, Puducherry.
+A collaborative team showcase portfolio website built for seminar presentation by Ranjana Devi K and Pavithra B, B.Tech Information Science Engineering students at Women's Engineering College, Puducherry.
 
 
 
-\## 🌐 Live Demo
+🌐 Live Demo
 
-> Deploy on Render https://seminar-portfolio.onrender.com
-
-
-
-\---
+Deploy on Render https://seminar-portfolio.onrender.com
 
 
 
-\## 👩‍💻 About
+👩‍💻 About
 
 
 
@@ -28,31 +24,31 @@ This portfolio showcases our profiles, projects, skills, and technical journey a
 
 
 
-\## ✨ Features
+✨ Features
 
 
 
-\- Hero section with animated gradient orbs
+- Hero section with animated gradient orbs
 
-\- Team profiles with skills and project highlights
+- Team profiles with skills and project highlights
 
-\- Git \& GitHub educational section with commands reference
+- Git \& GitHub educational section with commands reference
 
-\- Deployment guide for GitHub Pages and Render
+- Deployment guide for GitHub Pages and Render
 
-\- Smooth scroll animations and intersection observer effects
+- Smooth scroll animations and intersection observer effects
 
-\- Fully responsive design (mobile-friendly)
+- Fully responsive design (mobile-friendly)
 
-\- Dark theme with custom CSS variables
-
-
-
-\---
+- Dark theme with custom CSS variables
 
 
 
-\## 🛠️ Tech Stack
+
+
+
+
+🛠️ Tech Stack
 
 
 
@@ -70,11 +66,11 @@ This portfolio showcases our profiles, projects, skills, and technical journey a
 
 
 
-\---
 
 
 
-\## 🚀 How to Run Locally
+
+🚀 How to Run Locally
 
 ```bash
 
@@ -100,11 +96,11 @@ open index.html
 
 
 
-\---
 
 
 
-\## 📁 Project Structure
+
+📁 Project Structure
 
 ```
 
@@ -120,11 +116,11 @@ seminar-portfolio/
 
 
 
-\---
 
 
 
-\## 👩‍🎓 Authors
+
+👩‍🎓 Authors
 
 
 
@@ -138,11 +134,10 @@ seminar-portfolio/
 
 
 
-\---
 
 
 
-\## 📄 License
+📄 License
 
 
 
