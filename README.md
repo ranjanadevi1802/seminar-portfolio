@@ -8,7 +8,7 @@
 
 # \## 🌐 Live Demo
 
-# > Deploy on Render https://seminar-portfolio.onrender.com 
+# > Deploy on Render https://seminar-portfolio.onrender.com
 
 # 
 
