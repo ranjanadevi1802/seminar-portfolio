@@ -1,154 +1,154 @@
-# \# 🎓 Seminar Portfolio — ISE Batch 2026
+\# 🎓 Seminar Portfolio — ISE Batch 2026
 
-# 
 
-# A collaborative team showcase portfolio website built for seminar presentation by \*\*Ranjana Devi K\*\* and \*\*Pavithra B\*\*, B.Tech Information Science Engineering students at Women's Engineering College, Puducherry.
 
-# 
+A collaborative team showcase portfolio website built for seminar presentation by \*\*Ranjana Devi K\*\* and \*\*Pavithra B\*\*, B.Tech Information Science Engineering students at Women's Engineering College, Puducherry.
 
-# \## 🌐 Live Demo
 
-# > Deploy on Render https://seminar-portfolio.onrender.com
 
-# 
+\## 🌐 Live Demo
 
-# \---
+> Deploy on Render https://seminar-portfolio.onrender.com
 
-# 
 
-# \## 👩‍💻 About
 
-# 
+\---
 
-# This portfolio showcases our profiles, projects, skills, and technical journey as ISE students. It also includes an educational section on Git, GitHub workflows, and deployment options (GitHub Pages vs Render).
 
-# 
 
-# \---
+\## 👩‍💻 About
 
-# 
 
-# \## ✨ Features
 
-# 
+This portfolio showcases our profiles, projects, skills, and technical journey as ISE students. It also includes an educational section on Git, GitHub workflows, and deployment options (GitHub Pages vs Render).
 
-# \- Hero section with animated gradient orbs
 
-# \- Team profiles with skills and project highlights
 
-# \- Git \& GitHub educational section with commands reference
+\---
 
-# \- Deployment guide for GitHub Pages and Render
 
-# \- Smooth scroll animations and intersection observer effects
 
-# \- Fully responsive design (mobile-friendly)
+\## ✨ Features
 
-# \- Dark theme with custom CSS variables
 
-# 
 
-# \---
+\- Hero section with animated gradient orbs
 
-# 
+\- Team profiles with skills and project highlights
 
-# \## 🛠️ Tech Stack
+\- Git \& GitHub educational section with commands reference
 
-# 
+\- Deployment guide for GitHub Pages and Render
 
-# | Technology | Usage |
+\- Smooth scroll animations and intersection observer effects
 
-# |---|---|
+\- Fully responsive design (mobile-friendly)
 
-# | HTML5 | Structure |
+\- Dark theme with custom CSS variables
 
-# | CSS3 | Styling, animations, responsive layout |
 
-# | Vanilla JavaScript | Scroll animations, interactivity |
 
-# | Google Fonts | Syne + DM Sans typography |
+\---
 
-# 
 
-# \---
 
-# 
+\## 🛠️ Tech Stack
 
-# \## 🚀 How to Run Locally
 
-# ```bash
 
-# \# Clone the repository
+| Technology | Usage |
 
-# git clone https://github.com/ranjanadevi1802/seminar-portfolio.git
+|---|---|
 
-# 
+| HTML5 | Structure |
 
-# \# Navigate into the folder
+| CSS3 | Styling, animations, responsive layout |
 
-# cd seminar-portfolio
+| Vanilla JavaScript | Scroll animations, interactivity |
 
-# 
+| Google Fonts | Syne + DM Sans typography |
 
-# \# Open in browser
 
-# open index.html
 
-# \# or just double-click index.html
+\---
 
-# ```
 
-# 
 
-# \---
+\## 🚀 How to Run Locally
 
-# 
+```bash
 
-# \## 📁 Project Structure
+\# Clone the repository
 
-# ```
+git clone https://github.com/ranjanadevi1802/seminar-portfolio.git
 
-# seminar-portfolio/
 
-# │
 
-# ├── index.html       # Main portfolio page (all-in-one)
+\# Navigate into the folder
 
-# └── README.md        # Project documentation
+cd seminar-portfolio
 
-# ```
 
-# 
 
-# \---
+\# Open in browser
 
-# 
+open index.html
 
-# \## 👩‍🎓 Authors
+\# or just double-click index.html
 
-# 
+```
 
-# | Name | GitHub |
 
-# |---|---|
 
-# | Ranjana Devi K | \[@ranjanadevi1802](https://github.com/ranjanadevi1802) |
+\---
 
-# | Pavithra B | \[@pavithraB-wec](https://github.com/pavithraB-wec) |
 
-# 
 
-# \---
+\## 📁 Project Structure
 
-# 
+```
 
-# \## 📄 License
+seminar-portfolio/
 
-# 
+│
 
-# This project is for academic/seminar purposes only.
+├── index.html       # Main portfolio page (all-in-one)
 
-# 
+└── README.md        # Project documentation
 
-# © 2026 Ranjana Devi K \& Pavithra B · B.Tech ISE · WEC Puducherry
+```
+
+
+
+\---
+
+
+
+\## 👩‍🎓 Authors
+
+
+
+| Name | GitHub |
+
+|---|---|
+
+| Ranjana Devi K | \[@ranjanadevi1802](https://github.com/ranjanadevi1802) |
+
+| Pavithra B | [@pavithraB-wec](https://github.com/pavithraB-wec)|
+
+
+
+\---
+
+
+
+\## 📄 License
+
+
+
+This project is for academic/seminar purposes only.
+
+
+
+© 2026 Ranjana Devi K \& Pavithra B · B.Tech ISE · WEC Puducherry
 
