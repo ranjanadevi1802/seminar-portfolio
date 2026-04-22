@@ -44,10 +44,6 @@ This portfolio showcases our profiles, projects, skills, and technical journey a
 
 
 
-
-
-
-
 🛠️ Tech Stack
 
 
@@ -65,11 +61,6 @@ This portfolio showcases our profiles, projects, skills, and technical journey a
 | Google Fonts | Syne + DM Sans typography |
 
 
-
-
-
-
-
 🚀 How to Run Locally
 
 ```bash
@@ -79,11 +70,9 @@ This portfolio showcases our profiles, projects, skills, and technical journey a
 git clone https://github.com/ranjanadevi1802/seminar-portfolio.git
 
 
-
 \# Navigate into the folder
 
 cd seminar-portfolio
-
 
 
 \# Open in browser
@@ -93,11 +82,6 @@ open index.html
 \# or just double-click index.html
 
 ```
-
-
-
-
-
 
 
 📁 Project Structure
@@ -116,10 +100,6 @@ seminar-portfolio/
 
 
 
-
-
-
-
 👩‍🎓 Authors
 
 
@@ -134,15 +114,11 @@ seminar-portfolio/
 
 
 
-
-
-
 📄 License
 
 
 
 This project is for academic/seminar purposes only.
-
 
 
 © 2026 Ranjana Devi K \& Pavithra B · B.Tech ISE · WEC Puducherry
